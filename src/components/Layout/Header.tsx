@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { ShoppingCart, User, Search, Menu, X } from 'lucide-react';
-import { useCart } from '../../contexts/CartContext';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { ShoppingCart, User, Search, Menu, X } from "lucide-react";
+import { useCart } from "../../contexts/CartContext";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const { state } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
       navigate(`/products?search=${encodeURIComponent(searchTerm)}`);
-      setSearchTerm('');
+      setSearchTerm("");
     }
   };
 
@@ -31,19 +31,34 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <Link to="/" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               Início
             </Link>
-            <Link to="/products" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/products"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               Produtos
             </Link>
-            <Link to="/products?category=Camisas" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/products?category=Camisas"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               Camisas
             </Link>
-            <Link to="/products?category=Calças" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/products?category=Calças"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               Calças
             </Link>
-            <Link to="/products?category=Polos" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/products?category=Polos"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               Polos
             </Link>
           </nav>
@@ -66,10 +81,16 @@ export default function Header() {
 
           {/* Right Side Icons */}
           <div className="flex items-center space-x-4">
-            <Link to="/admin" className="text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/admin"
+              className="text-slate-600 hover:text-slate-800 transition-colors"
+            >
               <User className="h-6 w-6" />
             </Link>
-            <Link to="/cart" className="relative text-slate-600 hover:text-slate-800 transition-colors">
+            <Link
+              to="/cart"
+              className="relative text-slate-600 hover:text-slate-800 transition-colors"
+            >
               <ShoppingCart className="h-6 w-6" />
               {state.itemCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -81,7 +102,11 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden text-slate-600 hover:text-slate-800 transition-colors"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
