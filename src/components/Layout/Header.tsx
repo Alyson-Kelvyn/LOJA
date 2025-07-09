@@ -43,7 +43,7 @@ export default function Header() {
             >
               Produtos
             </Link>
-            <Link
+            {/* <Link
               to="/products?category=Camisas"
               className="text-slate-600 hover:text-slate-800 transition-colors"
             >
@@ -60,7 +60,7 @@ export default function Header() {
               className="text-slate-600 hover:text-slate-800 transition-colors"
             >
               Polos
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Search Bar */}
@@ -144,7 +144,7 @@ export default function Header() {
             >
               Produtos
             </Link>
-            <Link
+            {/* <Link
               to="/products?category=Camisas"
               className="block py-2 text-slate-600 hover:text-slate-800 transition-colors"
               onClick={() => setIsMenuOpen(false)}
@@ -164,7 +164,7 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Polos
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}
